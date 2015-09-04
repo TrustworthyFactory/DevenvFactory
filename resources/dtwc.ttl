@@ -1,0 +1,624 @@
+@prefix : <http://www.optet.eu/ns/DigitalTrustworthinessCertificate#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://dublincore.org/2010/10/11/dcterms.rdf#> .
+@base <http://www.optet.eu/ns/DigitalTrustworthinessCertificate> .
+
+<http://www.optet.eu/ns/DigitalTrustworthinessCertificate> rdf:type owl:Ontology ;
+                                                           
+                                                           rdfs:label "Digital Trustworthiness Certificate Vocabulary" ;
+                                                           
+                                                           owl:versionInfo "0.3.0"^^xsd:string ;
+                                                           
+                                                           dcterms:created "2013-11-18"^^xsd:date ;
+                                                           
+                                                           dcterms:modified "2014-02-28"^^xsd:string ;
+                                                           
+                                                           dcterms:title "Digital Trustworthiness Certificate Vocabulary"^^xsd:string ;
+                                                           
+                                                           dcterms:creator "Francesco Di Cerbo"^^xsd:string ;
+                                                           
+                                                           dcterms:rights "SAP contribution in the EU FP7 OPTET research project."^^xsd:string ;
+                                                           
+                                                           rdfs:comment """This DTWC Vocabulary is a means to express Digital TrustWorthiness Certificate instances, as defined in the OPTET project (http://www.optet.eu). 
+The DTWC vocabulary aims at defining a content structure for asserting specific characteristics of a software, like those stated as outcome of certification processes. This vocabulary is deliberately agnostic with respect to any certification scheme, therefore it can potentially represent the results of any certification process, by extending it adequately."""^^xsd:string ;
+                                                           
+                                                           dcterms:description """This DTWC Vocabulary is a means to express Digital TrustWorthiness Certificate instances, as defined in the OPTET project (http://www.optet.eu). 
+The DTWC vocabulary aims at defining a content structure for asserting specific characteristics of a software, like those stated as outcome of certification processes. This vocabulary is deliberately agnostic with respect to any certification scheme, therefore it can potentially represent the results of any certification process, by extending it adequately.
+
+The DTWC is composed by four sections:
+- A Software Description (SD) that details the internals of software being certified. It comprises a list of internal components, their relations and a list of assets, i.e. the notable elements inside components, from which specific assessments and claims are made in the certificate.
+- A Trustworthiness Problem Definition [--TBC--].
+- A Trustworthiness Property Specification [--TBC--].
+- An Evidence section [--TBC--]."""^^xsd:string ;
+                                                           
+                                                           owl:versionIRI <http://www.optet.eu/ns/DigitalTrustworthinessCertificate/0.2.0> .
+
+
+#################################################################
+#
+#    Annotation properties
+#
+#################################################################
+
+
+###  http://xmlns.com/foaf/0.1/firstName
+
+foaf:firstName rdf:type owl:AnnotationProperty .
+
+
+
+###  http://xmlns.com/foaf/0.1/lastName
+
+foaf:lastName rdf:type owl:AnnotationProperty .
+
+
+
+###  http://xmlns.com/foaf/0.1/name
+
+foaf:name rdf:type owl:AnnotationProperty .
+
+
+
+###  http://xmlns.com/foaf/0.1/phone
+
+foaf:phone rdf:type owl:AnnotationProperty .
+
+
+
+###  http://xmlns.com/foaf/0.1/title
+
+foaf:title rdf:type owl:AnnotationProperty .
+
+
+
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#affectsAsset
+
+:affectsAsset rdf:type owl:ObjectProperty ;
+              
+              rdfs:domain :TWProblemDefinition .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasAsset
+
+:hasAsset rdf:type owl:ObjectProperty ;
+          
+          rdfs:domain :SystemDescription ,
+                      :TWProperty ;
+          
+          rdfs:subPropertyOf owl:topObjectProperty .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasAssociatedStakeholder
+
+:hasAssociatedStakeholder rdf:type owl:ObjectProperty ;
+                          
+                          rdfs:domain :Component ;
+                          
+                          rdfs:range [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasSubComponent ;
+                                       owl:someValuesFrom :Stakeholder
+                                     ] .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasBehaviour
+
+:hasBehaviour rdf:type owl:ObjectProperty ;
+              
+              rdfs:domain :Component .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasContext
+
+:hasContext rdf:type owl:ObjectProperty ;
+            
+            rdfs:domain :TWProperty .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasControl
+
+:hasControl rdf:type owl:ObjectProperty ;
+            
+            rdfs:domain :TWPropertySpecification ,
+                        :Threat .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasEvidence
+
+:hasEvidence rdf:type owl:ObjectProperty ;
+             
+             rdfs:domain :DTWC .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasMetric
+
+:hasMetric rdf:type owl:ObjectProperty ;
+           
+           rdfs:domain :Evidence .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasMetricCalculationMethod
+
+:hasMetricCalculationMethod rdf:type owl:ObjectProperty ;
+                            
+                            rdfs:domain :Metric ;
+                            
+                            rdfs:subPropertyOf owl:topObjectProperty .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasPart
+
+:hasPart rdf:type owl:ObjectProperty ;
+         
+         rdfs:domain :Component ,
+                     :ComponentModel ,
+                     :DTWC ,
+                     :SystemDescription .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasStakeholder
+
+:hasStakeholder rdf:type owl:ObjectProperty ;
+                
+                rdfs:domain :SystemDescription .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasSubComponent
+
+:hasSubComponent rdf:type owl:ObjectProperty ;
+                 
+                 rdfs:domain :ComponentModel ;
+                 
+                 rdfs:range [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasSubComponent ;
+                              owl:someValuesFrom :Component
+                            ] .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasTWAttribute
+
+:hasTWAttribute rdf:type owl:ObjectProperty ;
+                
+                rdfs:domain :TWProperty .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasTWProblemDefinition
+
+:hasTWProblemDefinition rdf:type owl:FunctionalProperty ,
+                                 owl:ObjectProperty ;
+                        
+                        rdfs:domain :DTWC .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasTWProperty
+
+:hasTWProperty rdf:type owl:ObjectProperty ;
+               
+               rdfs:domain :TWPropertySpecification .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasTWPropertySpecification
+
+:hasTWPropertySpecification rdf:type owl:FunctionalProperty ,
+                                     owl:ObjectProperty ;
+                            
+                            rdfs:domain :DTWC .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasThreat
+
+:hasThreat rdf:type owl:ObjectProperty ;
+           
+           rdfs:domain :TWProblemDefinition .
+
+
+
+
+
+#################################################################
+#
+#    Data properties
+#
+#################################################################
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#ID
+
+:ID rdf:type owl:DatatypeProperty ;
+    
+    rdfs:range xsd:string ;
+    
+    rdfs:domain owl:Thing .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasUnit
+
+:hasUnit rdf:type owl:DatatypeProperty ;
+         
+         rdfs:domain :Metric ;
+         
+         rdfs:subPropertyOf owl:topDataProperty .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasValue
+
+:hasValue rdf:type owl:DatatypeProperty ;
+          
+          rdfs:domain :Metric ;
+          
+          rdfs:subPropertyOf owl:topDataProperty .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#inTargetOfEvaluation
+
+:inTargetOfEvaluation rdf:type owl:DatatypeProperty ;
+                      
+                      rdfs:domain :Component ;
+                      
+                      rdfs:range xsd:boolean .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#type
+
+:type rdf:type owl:DatatypeProperty ;
+      
+      rdfs:domain :Attribute ,
+                  :Component ,
+                  :Control ,
+                  :Metric ,
+                  :Stakeholder ,
+                  :TWAttribute ,
+                  :Threat ;
+      
+      rdfs:range xsd:string .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Asset
+
+:Asset rdf:type owl:Class ;
+       
+       owl:equivalentClass [ rdf:type owl:Restriction ;
+                             owl:onProperty :inTargetOfEvaluation ;
+                             owl:someValuesFrom xsd:boolean
+                           ] ;
+       
+       rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Attribute
+
+:Attribute rdf:type owl:Class .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Behaviour
+
+:Behaviour rdf:type owl:Class .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#CertifiedEvidence
+
+:CertifiedEvidence rdf:type owl:Class ;
+                   
+                   rdfs:subClassOf :Evidence .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Component
+
+:Component rdf:type owl:Class ;
+           
+           rdfs:subClassOf owl:Thing ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasStakeholder ;
+                             owl:someValuesFrom owl:Thing
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasPart ;
+                             owl:someValuesFrom :ComponentModel
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasBehaviour ;
+                             owl:someValuesFrom :Behaviour
+                           ] .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#ComponentModel
+
+:ComponentModel rdf:type owl:Class ;
+                
+                rdfs:subClassOf owl:Thing ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :hasPart ;
+                                  owl:someValuesFrom :Attribute
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :hasSubComponent ;
+                                  owl:someValuesFrom :Component
+                                ] ;
+                
+                rdfs:comment """The ComponentModel can be used to define the structure and the internal dynamics of a Component. This node can be extended to comprise any piece of information deemed necessary, for instance, the Abstract Syntax Tree or a formal model for a Component.
+
+The hasPart relation can specify relevant elements like for instance variables or input parameters for which certain TW properties will be asserted.
+
+The hasSubComponent relation can be used to express an hierachy of Components."""@en .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Context
+
+:Context rdf:type owl:Class .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Control
+
+:Control rdf:type owl:Class .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#DTWC
+
+:DTWC rdf:type owl:Class ;
+      
+      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                        owl:onProperty :hasTWProblemDefinition ;
+                        owl:someValuesFrom :TWProblemDefinition
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :hasPart ;
+                        owl:onClass :SystemDescription ;
+                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :hasTWPropertySpecification ;
+                        owl:someValuesFrom :TWPropertySpecification
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :hasEvidence ;
+                        owl:someValuesFrom :Evidence
+                      ] .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Evidence
+
+:Evidence rdf:type owl:Class ;
+          
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasMetric ;
+                            owl:someValuesFrom :Metric
+                          ] .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Metric
+
+:Metric rdf:type owl:Class ;
+        
+        rdfs:subClassOf owl:Thing ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasPart ;
+                          owl:someValuesFrom :MetricRuntimeCalculation
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasUnit ;
+                          owl:someValuesFrom xsd:short
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasValue ;
+                          owl:someValuesFrom xsd:short
+                        ] .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#MetricRuntimeCalculation
+
+:MetricRuntimeCalculation rdf:type owl:Class ;
+                          
+                          rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#RuntimeEvidence
+
+:RuntimeEvidence rdf:type owl:Class ;
+                 
+                 rdfs:subClassOf :Evidence .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Stakeholder
+
+:Stakeholder rdf:type owl:Class ;
+             
+             rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#SubComponent
+
+:SubComponent rdf:type owl:Class ;
+              
+              rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#SystemDescription
+
+:SystemDescription rdf:type owl:Class ;
+                   
+                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasPart ;
+                                     owl:someValuesFrom :Component
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasAsset ;
+                                     owl:someValuesFrom :Asset
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasStakeholder ;
+                                     owl:someValuesFrom :Stakeholder
+                                   ] .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#TWAttribute
+
+:TWAttribute rdf:type owl:Class ;
+             
+             rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#TWProblemDefinition
+
+:TWProblemDefinition rdf:type owl:Class ;
+                     
+                     rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasThreat ;
+                                       owl:someValuesFrom :Threat
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :affectsAsset ;
+                                       owl:someValuesFrom :Asset
+                                     ] .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#TWProperty
+
+:TWProperty rdf:type owl:Class ;
+            
+            rdfs:subClassOf owl:Thing ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasTWAttribute ;
+                              owl:someValuesFrom :TWAttribute
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasAsset ;
+                              owl:someValuesFrom :Asset
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasContext ;
+                              owl:someValuesFrom :Context
+                            ] .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#TWPropertySpecification
+
+:TWPropertySpecification rdf:type owl:Class ;
+                         
+                         rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           owl:onProperty :hasTWProperty ;
+                                           owl:someValuesFrom :TWProperty
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :hasControl ;
+                                           owl:someValuesFrom :Control
+                                         ] .
+
+
+
+###  http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Threat
+
+:Threat rdf:type owl:Class ;
+        
+        rdfs:subClassOf owl:Thing ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasControl ;
+                          owl:someValuesFrom :Control
+                        ] .
+
+
+
+###  http://www.w3.org/2002/07/owl#Thing
+
+owl:Thing rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty :ID ;
+                            owl:someValuesFrom xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :type ;
+                            owl:someValuesFrom xsd:string
+                          ] .
+
+
+
+###  http://xmlns.com/foaf/0.1/Person
+
+foaf:Person rdf:type owl:Class .
+
+
+
+
+
+#################################################################
+#
+#    General axioms
+#
+#################################################################
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :DTWC
+                :Evidence
+                :SystemDescription
+                :TWProblemDefinition
+                :TWPropertySpecification
+              )
+] .
+
+
+
+
+###  Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net
+

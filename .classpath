@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="lib" path="lib/jcl-over-slf4j-1.6.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jena-arq-2.11.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jena-core-2.11.0.jar" sourcepath="C:/Documents and Settings/T0013577/.m2/repository/org/apache/jena/jena-core/2.11.0/jena-core-2.11.0-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jena-iri-1.0.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jena-sdb-1.4.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jena-tdb-1.0.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/log4j-1.2.16.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/slf4j-api-1.6.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/slf4j-log4j12-1.6.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/xercesImpl-2.11.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/xml-apis-1.4.01.jar"/>
+	<classpathentry exported="true" kind="lib" path="users" sourcepath="users"/>
+	<classpathentry exported="true" kind="lib" path="icons" sourcepath="icons"/>
+	<classpathentry exported="true" kind="lib" path="profiles" sourcepath="profiles"/>
+	<classpathentry exported="true" kind="lib" path="resources" sourcepath="resources"/>
+	<classpathentry exported="true" kind="lib" path="schema" sourcepath="schema"/>
+	<classpathentry exported="true" kind="lib" path="xsd" sourcepath="xsd"/>
+	<classpathentry exported="true" kind="lib" path="lib/jastor-1.0.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.protege.editor.owl.codegeneration.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/owlapi-all-3.2.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/com.sap.research.usdl.psm_1.0.2.3M5.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org-apache-commons-logging.jar"/>
+	<classpathentry kind="lib" path="lib/xmlsec-1.4.3.jar"/>
+	<classpathentry kind="lib" path="lib/DTWC.jar"/>
+	<classpathentry kind="lib" path="lib/jmlruntime.jar"/>
+	<classpathentry kind="lib" path="lib/jmlspecs.jar"/>
+	<classpathentry kind="lib" path="lib/openjml.jar"/>
+	<classpathentry kind="lib" path="lib/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/org-apache-commons-codec.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

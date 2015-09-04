@@ -1,0 +1,589 @@
+@prefix : <http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://dublincore.org/2010/10/11/dcterms.rdf#> .
+@base <http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate> .
+
+<http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate> rdf:type owl:Ontology ;
+                                                                         
+                                                                         rdfs:label "Digital Trustworthiness Certificate Vocabulary" ;
+                                                                         
+                                                                         dcterms:created "2013-11-18"^^xsd:string ;
+                                                                         
+                                                                         dcterms:modified "2013-11-18"^^xsd:string ;
+                                                                         
+                                                                         owl:versionInfo "0.1.0" ;
+                                                                         
+                                                                         dcterms:title "Digital Trustworthiness Certificate Vocabulary" ;
+                                                                         
+                                                                         dcterms:creator :Francesco_Di_Cerbo ;
+                                                                         
+                                                                         owl:versionIRI <http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate/1.0.0> .
+
+
+#################################################################
+#
+#    Annotation properties
+#
+#################################################################
+
+
+###  http://xmlns.com/foaf/0.1/firstName
+
+foaf:firstName rdf:type owl:AnnotationProperty .
+
+
+
+###  http://xmlns.com/foaf/0.1/lastName
+
+foaf:lastName rdf:type owl:AnnotationProperty .
+
+
+
+###  http://xmlns.com/foaf/0.1/name
+
+foaf:name rdf:type owl:AnnotationProperty .
+
+
+
+###  http://xmlns.com/foaf/0.1/phone
+
+foaf:phone rdf:type owl:AnnotationProperty .
+
+
+
+###  http://xmlns.com/foaf/0.1/title
+
+foaf:title rdf:type owl:AnnotationProperty .
+
+
+
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#Controls
+
+:Controls rdf:type owl:ObjectProperty .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#Evidences
+
+:Evidences rdf:type owl:ObjectProperty .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#TWPropertySpecifications
+
+:TWPropertySpecifications rdf:type owl:ObjectProperty .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#affectedAsset
+
+:affectedAsset rdf:type owl:ObjectProperty .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#assets
+
+:assets rdf:type owl:ObjectProperty .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#harAssociatedStakeholder
+
+:harAssociatedStakeholder rdf:type owl:ObjectProperty ;
+                          
+                          rdfs:domain [ rdf:type owl:Restriction ;
+                                        owl:onProperty :hasSubComponent ;
+                                        owl:someValuesFrom :Component
+                                      ] ;
+                          
+                          rdfs:range [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasSubComponent ;
+                                       owl:someValuesFrom :Stakeholder
+                                     ] .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#hasAsset
+
+:hasAsset rdf:type owl:ObjectProperty ;
+          
+          rdfs:subPropertyOf owl:topObjectProperty .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#hasContext
+
+:hasContext rdf:type owl:ObjectProperty .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#hasControl
+
+:hasControl rdf:type owl:ObjectProperty .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#hasEvidence
+
+:hasEvidence rdf:type owl:ObjectProperty .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#hasMetric
+
+:hasMetric rdf:type owl:ObjectProperty .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#hasMetricCalculationMethod
+
+:hasMetricCalculationMethod rdf:type owl:ObjectProperty ;
+                            
+                            rdfs:subPropertyOf owl:topObjectProperty .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#hasPart
+
+:hasPart rdf:type owl:ObjectProperty .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#hasSubComponent
+
+:hasSubComponent rdf:type owl:ObjectProperty ;
+                 
+                 rdfs:range [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasSubComponent ;
+                              owl:someValuesFrom :Component
+                            ] ;
+                 
+                 rdfs:domain [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasSubComponent ;
+                               owl:someValuesFrom :ComponentModel
+                             ] .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#hasTWAttribute
+
+:hasTWAttribute rdf:type owl:ObjectProperty .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#hasTWProblemDefinition
+
+:hasTWProblemDefinition rdf:type owl:ObjectProperty .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#hasTWProperty
+
+:hasTWProperty rdf:type owl:ObjectProperty .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#hasThreat
+
+:hasThreat rdf:type owl:ObjectProperty .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#stakeholders
+
+:stakeholders rdf:type owl:ObjectProperty .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#type
+
+:type rdf:type owl:ObjectProperty .
+
+
+
+
+
+#################################################################
+#
+#    Data properties
+#
+#################################################################
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#ID
+
+:ID rdf:type owl:DatatypeProperty ;
+    
+    rdfs:range xsd:string .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#hasUnit
+
+:hasUnit rdf:type owl:DatatypeProperty .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#hasValue
+
+:hasValue rdf:type owl:DatatypeProperty ;
+          
+          rdfs:subPropertyOf owl:topDataProperty .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#inTargetOfEvaluation
+
+:inTargetOfEvaluation rdf:type owl:DatatypeProperty ;
+                      
+                      rdfs:range xsd:boolean .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#ArchitecturalElement
+
+#:ArchitecturalElement rdf:type owl:Class ;
+                      
+#                      rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#Asset
+
+:Asset rdf:type owl:Class ;
+       
+       rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#CertifiedEvidence
+
+:CertifiedEvidence rdf:type owl:Class ;
+                   
+                   rdfs:subClassOf :Evidence .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#Component
+
+:Component rdf:type owl:Class ;
+           
+           rdfs:subClassOf owl:Thing ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasPart ;
+                             owl:someValuesFrom :ComponentModel
+                           ] .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#ComponentModel
+
+:ComponentModel rdf:type owl:Class ;
+                
+                rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#Components
+
+:Components rdf:type owl:Class ;
+            
+            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasPart ;
+                              owl:someValuesFrom :Component
+                            ] .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#Control
+
+:Control rdf:type owl:Class .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#DTWC
+
+:DTWC rdf:type owl:Class ;
+      
+      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                        owl:onProperty :TWPropertySpecifications ;
+                        owl:someValuesFrom :TWPropertySpecification
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :hasTWProblemDefinition ;
+                        owl:someValuesFrom :TWProblemDefinition
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :hasPart ;
+                        owl:someValuesFrom :Evidences
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :hasPart ;
+                        owl:someValuesFrom :SystemDescription
+                      ] .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#Evidence
+
+:Evidence rdf:type owl:Class ;
+          
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasContext ;
+                            owl:someValuesFrom :Metric
+                          ] .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#Evidences
+
+:Evidences rdf:type owl:Class ;
+           
+           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasEvidence ;
+                             owl:someValuesFrom :Evidence
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasContext ;
+                             owl:someValuesFrom :Metric
+                           ] .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#Metric
+
+:Metric rdf:type owl:Class ;
+        
+        rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#MetricRuntimeCalculation
+
+:MetricRuntimeCalculation rdf:type owl:Class ;
+                          
+                          rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#ProblemDefinition
+
+:ProblemDefinition rdf:type owl:Class ;
+                   
+                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasPart ;
+                                     owl:someValuesFrom :Threat
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :affectedAsset ;
+                                     owl:someValuesFrom :Asset
+                                   ] .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#RuntimeEvidence
+
+:RuntimeEvidence rdf:type owl:Class ;
+                 
+                 rdfs:subClassOf :Evidence .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#Stakeholder
+
+:Stakeholder rdf:type owl:Class ;
+             
+             rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#SubComponent
+
+:SubComponent rdf:type owl:Class ;
+              
+              rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#SystemDescription
+
+:SystemDescription rdf:type owl:Class ;
+                   
+                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                     owl:onProperty :stakeholders ;
+                                     owl:someValuesFrom :Stakeholder
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasPart ;
+                                     owl:someValuesFrom :Components
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :assets ;
+                                     owl:someValuesFrom :Asset
+                                   ] .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#TWAttribute
+
+:TWAttribute rdf:type owl:Class ;
+             
+             rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#TWProblemDefinition
+
+:TWProblemDefinition rdf:type owl:Class .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#TWProperty
+
+:TWProperty rdf:type owl:Class ;
+            
+            rdfs:subClassOf owl:Thing ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasContext ;
+                              owl:someValuesFrom :Metric
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasAsset ;
+                              owl:someValuesFrom :Asset
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasTWAttribute ;
+                              owl:someValuesFrom :TWAttribute
+                            ] .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#TWPropertySpecification
+
+:TWPropertySpecification rdf:type owl:Class ;
+                         
+                         rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           owl:onProperty :hasControl ;
+                                           owl:someValuesFrom :Control
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :hasTWProperty ;
+                                           owl:someValuesFrom :TWProperty
+                                         ] .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#TWPropertySpecifications
+
+:TWPropertySpecifications rdf:type owl:Class ;
+                          
+                          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                            owl:onProperty :hasPart ;
+                                            owl:someValuesFrom :TWPropertySpecification
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :hasPart ;
+                                            owl:someValuesFrom :TWProperty
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :Controls ;
+                                            owl:someValuesFrom :Control
+                                          ] .
+
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#Threat
+
+:Threat rdf:type owl:Class ;
+        
+        rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.w3.org/2002/07/owl#Thing
+
+owl:Thing rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty :ID ;
+                            owl:someValuesFrom xsd:string
+                          ] .
+
+
+
+###  http://xmlns.com/foaf/0.1/Person
+
+foaf:Person rdf:type owl:Class .
+
+
+
+
+
+#################################################################
+#
+#    Individuals
+#
+#################################################################
+
+
+###  http://www.sap.com/ontologies/2013/8/DigitalTrustworthinessCertificate#Francesco_Di_Cerbo
+
+:Francesco_Di_Cerbo rdf:type owl:NamedIndividual ,
+                             foaf:Person ;
+                    
+                    foaf:name "Francesco Di Cerbo" ;
+                    
+                    foaf:firstName "Francesco" ;
+                    
+                    foaf:title "Dr" ;
+                    
+                    foaf:lastName "Di Cerbo" ;
+                    
+                    foaf:phone "+33 49228-6445" .
+
+
+
+
+#################################################################
+#
+#    General axioms
+#
+#################################################################
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :DTWC
+                :Evidence
+                :SystemDescription
+                :TWProblemDefinition
+                :TWPropertySpecification
+              )
+] .
+
+
+
+
+###  Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net
+

@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+<extension point="org.eclipse.core.runtime.adapters">
+      <factory
+            adaptableType="com.thalesgroup.optet.devenv.MyObject"
+            class="com.thalesgroup.optet.devenv.MyActionFilterAdapterFactory">
+         <adapter
+               type="org.eclipse.ui.IActionFilter">
+         </adapter>
+      </factory>
+</extension>
+
+
+	<extension point="org.eclipse.ui.services">
+    <sourceProvider provider="com.thalesgroup.optet.devenv.splashHandlers.SessionSourceProvider">
+        <variable 
+             name="com.thalesgroup.session.kind" priorityLevel="workbench">
+        </variable>
+    </sourceProvider>
+</extension>
+
+   <extension-point id="splashExtension" name="Splash Extensions" schema="schema/splashExtension.exsd"/>
+   <extension
+         point="org.eclipse.ui.splashHandlers">
+     <splashHandler
+            class="com.thalesgroup.optet.devenv.splashHandlers.InteractiveSplashHandler"
+            id="optetplugin.splashHandlers.interactive">
+      </splashHandler>
+      <splashHandlerProductBinding
+            productId="org.eclipse.platform.ide"
+            splashId="optetplugin.splashHandlers.interactive">
+      </splashHandlerProductBinding>
+   </extension>   
+   
+   
+   
+   
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="com.thalesgroup.optet.devenv.preferences.OptetMainPage"
+            id="com.thalesgroup.optet.devenv.preferences.OptetMainPage"
+            name="Optet Main Preferences">
+      </page>
+      <page
+            class="com.thalesgroup.optet.devenv.preferences.OptetDeliveryPreferencePage"
+            id="com.thalesgroup.optet.devenv.preferences.OptetDeliveryPreferencePage"
+            category="com.thalesgroup.optet.devenv.preferences.OptetMainPage"
+            name="Optet Delivery Preferences">
+      </page>
+      <page
+            class="com.thalesgroup.optet.devenv.preferences.OptetSignaturePreferencePage"
+            id="com.thalesgroup.optet.devenv.preferences.OptetSignaturePreferencePage"
+            category="com.thalesgroup.optet.devenv.preferences.OptetMainPage"
+            name="Optet Certificate Preferences">
+      </page>
+      <page
+            class="com.thalesgroup.optet.devenv.preferences.OptetPreferencePage"
+            id="com.thalesgroup.optet.devenv.preferences.OptetPreferencePage"
+            category="com.thalesgroup.optet.devenv.preferences.OptetMainPage"
+            name="Optet Preferences">
+      </page>
+            <page
+            class="com.thalesgroup.optet.devenv.preferences.MetricToolPreferencePage"
+            id="com.thalesgroup.optet.devenv.preferences.MetricToolPreferencePage"
+            category="com.thalesgroup.optet.devenv.preferences.OptetMainPage"
+            name="Optet Metric Tool Preferences">
+      </page>
+      
+      
+      
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="com.thalesgroup.optet.devenv.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="com.thalesgroup.optet.devenv.perspectives.OptetauditPerspective"
+            icon="icons/releng_gears.gif"
+            id="com.thalesgroup.optet.devenv.perspectives.OptetauditPerspective"
+            name="Optet Audit">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+                     <view
+                  id="org.eclipse.jdt.ui.PackageExplorer"
+                  minimized="false"
+                  moveable="false"
+                  ratio="0.5"
+                  relationship="left"
+                  relative="org.eclipse.ui.console.ConsoleView"
+                  visible="true">
+            </view>
+ 
+            <view
+                  id="org.eclipse.ui.console.ConsoleView"
+                  minimized="false"
+                  moveable="false"
+                  ratio="0.5"
+                  relationship="right"
+                  relative="org.eclipse.jdt.ui.PackageExplorer"
+                  visible="true">
+            </view>
+            <view
+                  id="com.thalesgroup.optet.devenv.views.OptetAuditView"
+                  minimized="false"
+                  ratio="0.5"
+                  relationship="right"
+                  relative="org.eclipse.ui.views.TaskList"
+                  visible="true">
+            </view>
+            <view
+                  id="com.thalesgroup.optet.devenv.views.OptetMetricView"
+                  minimized="false"
+                  ratio="0.5"
+                  relationship="right"
+                  relative="org.eclipse.ui.views.TaskList"
+                  visible="true">
+            </view>
+            <view
+                  id="com.thalesgroup.optet.devenv.views.OptetTestCoverageView"
+                  minimized="false"
+                  ratio="0.5"
+                  relationship="right"
+                  relative="org.eclipse.ui.views.TaskList"
+                  visible="true">
+            </view>
+            
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+         
+         	<category 
+	   id="com.thalesgroup.optet.devenv"
+	   name="Optet views">
+	</category>
+      <view
+            category="com.thalesgroup.optet.devenv"
+            class="com.thalesgroup.optet.devenv.views.OptetAuditView"
+            icon="icons/sample.gif"
+            id="com.thalesgroup.optet.devenv.views.OptetAuditView"
+            name="OptetAudit View">
+      </view>
+      <view
+            category="com.thalesgroup.optet.devenv"
+            class="com.thalesgroup.optet.devenv.views.OptetMetricView"
+            icon="icons/sample.gif"
+            id="com.thalesgroup.optet.devenv.views.OptetMetricView"
+            name="OptetMetric View">
+      </view>
+      <view
+            category="com.thalesgroup.optet.devenv"
+            class="com.thalesgroup.optet.devenv.views.OptetTestCoverageView"
+            icon="icons/sample.gif"
+            id="com.thalesgroup.optet.devenv.views.OptetTestCoverageView"
+            name="OptetTestCoverage View">
+      </view>
+      <view
+            category="com.thalesgroup.optet.devenv"
+            class="com.thalesgroup.optet.devenv.views.DashboardView"
+            icon="icons/sample.gif"
+            id="com.thalesgroup.optet.devenv.views.DashboardView"
+            name="Dashboard View">
+      </view>
+   </extension>
+   
+  <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="com.thalesgroup.optet.devenv.commands.category"
+            name="Sample Category">
+      </category>
+      <command
+            categoryId="com.thalesgroup.optet.devenv.commands.category"
+            id="com.thalesgroup.optet.devenv.commands.optetCommand"
+            name="Dashboard Process view">
+            <visibleWhen
+                     checkEnabled="false">
+                  <with
+                        variable="com.thalesgroup.session.kind">
+                     <equals
+                           value="admin">
+                     </equals>
+                  </with>
+               </visibleWhen>
+      </command>
+      <command
+            categoryId="com.thalesgroup.optet.devenv.commands.category"
+            id="com.thalesgroup.optet.devenv.commands.systemCommand"
+            name="System Command">
+      </command>
+      <command
+            categoryId="com.thalesgroup.optet.devenv.commands.category"
+            id="com.thalesgroup.optet.devenv.commands.automaticEvidencesCommand"
+            name="Automatic Evidences Command">
+      </command>
+      <command
+            categoryId="com.thalesgroup.optet.devenv.commands.category"
+            id="com.thalesgroup.optet.devenv.commands.manualEvidencesCommand"
+            name="Manual Evidences Command">
+      </command>
+      <command
+            categoryId="com.thalesgroup.optet.devenv.commands.category"
+            id="com.thalesgroup.optet.devenv.commands.problemDefinitionCommand"
+            name="Problem Definition Command">
+      </command>
+      <command
+            categoryId="com.thalesgroup.optet.devenv.commands.category"
+            id="com.thalesgroup.optet.devenv.commands.propertySpecificationCommand"
+            name="Property Specification Command">
+      </command>
+      <command
+            categoryId="com.thalesgroup.optet.devenv.commands.category"
+            id="com.thalesgroup.optet.devenv.commands.certificateGenerationCommand"
+            name="Certitifate Generation Command">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="com.thalesgroup.optet.devenv.handlers.OptetHandler"
+            commandId="com.thalesgroup.optet.devenv.commands.optetCommand">
+      </handler>
+      <handler
+            class="com.thalesgroup.optet.devenv.handlers.systemHandler"
+            commandId="com.thalesgroup.optet.devenv.commands.systemCommand">
+      </handler>
+      <handler
+            class="com.thalesgroup.optet.devenv.handlers.ManualEvidencesHandler"
+            commandId="com.thalesgroup.optet.devenv.commands.manualEvidencesCommand">
+      </handler>
+      <handler
+            class="com.thalesgroup.optet.devenv.handlers.AutomaticEvidencesHandler"
+            commandId="com.thalesgroup.optet.devenv.commands.automaticEvidencesCommand">
+      </handler>
+      <handler
+            class="com.thalesgroup.optet.devenv.handlers.PropertySpecificationHandler"
+            commandId="com.thalesgroup.optet.devenv.commands.propertySpecificationCommand">
+      </handler>
+      <handler
+            class="com.thalesgroup.optet.devenv.handlers.ProblemDefinitionHandler"
+            commandId="com.thalesgroup.optet.devenv.commands.problemDefinitionCommand">
+      </handler>
+      <handler
+            class="com.thalesgroup.optet.devenv.handlers.CertificateGenerationHandler"
+            commandId="com.thalesgroup.optet.devenv.commands.certificateGenerationCommand">
+      </handler>
+   </extension>
+   
+   
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="com.thalesgroup.optet.devenv.commands.optetCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+6">
+      </key>
+   </extension>
+   
+  
+   
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               id="com.thalesgroup.optet.devenv.menus.Optet"
+               label="Optet Menu"
+               mnemonic="M">
+            <command
+                  commandId="com.thalesgroup.optet.devenv.commands.optetCommand"
+                  id="com.thalesgroup.optet.devenv.menus.Optet"
+                  mnemonic="S">
+                                   <visibleWhen
+                     checkEnabled="false">
+                  <with
+                        variable="com.thalesgroup.session.kind">
+                        <equals
+                              value="admin">
+                        </equals>
+                  </with>
+               </visibleWhen>
+            </command> 
+         </menu>
+      </menuContribution>
+   </extension>
+      <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="org.eclipse.core.resources.IProject"
+            adaptable="true"
+            id="core.UnwantedJar">
+         <menu
+               label="optet"
+               path="additions"
+               id="OptetAnalysis.menu1">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               class="com.thalesgroup.optet.devenv.popup.actions.AuditsAction"
+               enablesFor="1"
+               id="com.thalesgroup.optet.devenv.AuditsAction"
+               label="Static analysis"
+               menubarPath="OptetAnalysis.menu1/group1">
+         </action>
+         <action
+               class="com.thalesgroup.optet.devenv.popup.actions.JMLAction"
+               enablesFor="1"
+               id="com.thalesgroup.optet.devenv.JMLAction"
+               label="JML analysis"
+               menubarPath="OptetAnalysis.menu1/group1">
+         </action>
+         <action
+               class="com.thalesgroup.optet.devenv.popup.actions.ConfigJMLAction"
+               enablesFor="1"
+               id="com.thalesgroup.optet.devenv.ConfigJMLAction"
+               label="Configure JML analysis"
+               menubarPath="OptetAnalysis.menu1/group1">
+         </action>
+         <action
+               label="Runtime analysis"
+               class="com.thalesgroup.optet.devenv.popup.actions.instrumentTest"
+               menubarPath="OptetAnalysis.menu1/group1"
+               enablesFor="1"
+               id="runTest.newAction">
+         </action>
+         <action
+               class="com.thalesgroup.optet.devenv.popup.actions.MetricsAction"
+               enablesFor="1"
+               id="com.thalesgroup.optet.devenv.MetricsAction"
+               label="Compute Optet metric"
+               menubarPath="OptetAnalysis.menu1/group1">
+         </action>
+         <action
+               class="com.thalesgroup.optet.devenv.popup.actions.CommitSourceAction"
+               enablesFor="1"
+               id="com.thalesgroup.optet.devenv.CommitSourceAction"
+               label="Commit source"
+               menubarPath="OptetAnalysis.menu1/group1">
+         </action>
+          <action
+               class="com.thalesgroup.optet.devenv.popup.actions.MetricToolAction"
+               enablesFor="1"
+               id="com.thalesgroup.optet.devenv.GenerateCertificateAction"
+               label="Optet Metrics"
+               menubarPath="OptetAnalysis.menu1/group1">
+         </action>
+        <!-- <action
+               class="com.thalesgroup.optet.devenv.popup.actions.USDLAction"
+               enablesFor="1"
+               id="com.thalesgroup.optet.devenv.USDLAction"
+               label="create USDL"
+               menubarPath="OptetAnalysis.menu1/group1">
+         </action>
+         <action
+               class="com.thalesgroup.optet.devenv.popup.actions.DeliveryAction"
+               enablesFor="1"
+               id="com.thalesgroup.optet.devenv.DeliveryAction"
+               label="delivery to the marketplace"
+               menubarPath="OptetAnalysis.menu1/group1">
+         </action>-->
+                           <visibility>
+               <systemProperty 
+                     name="optet.role"
+                     value="dev">
+               </systemProperty >
+         </visibility>
+      </objectContribution>
+         </extension>
+      
+      
+      
+             <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="org.eclipse.core.resources.IProject"
+            adaptable="true"
+            id="core.UnwantedJar3">
+         <menu
+               label="optet certification"
+               path="additions"
+               id="OptetAnalysis.menu3">
+            <separator
+                  name="group3">
+            </separator>
+         </menu>
+ <action
+               class="com.thalesgroup.optet.devenv.popup.actions.GenerateCertificateAction"
+               enablesFor="1"
+               id="com.thalesgroup.optet.devenv.GenerateCertificateAction"
+               label="Optet certification"
+               menubarPath="OptetAnalysis.menu3/group3">
+         </action>
+ <action
+               class="com.thalesgroup.optet.devenv.popup.actions.MetricToolAction"
+               enablesFor="1"
+               id="com.thalesgroup.optet.devenv.GenerateCertificateAction"
+               label="Optet Metrics"
+               menubarPath="OptetAnalysis.menu3/group3">
+         </action>
+                  <visibility>
+               <systemProperty 
+                     name="optet.role"
+                     value="admin">
+               </systemProperty >
+         </visibility>
+      </objectContribution>
+         </extension>
+      
+       <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="org.eclipse.core.resources.IProject"
+            adaptable="true"
+            id="core.UnwantedJar2">
+         <menu
+               label="optet delivery"
+               path="additions"
+               id="OptetAnalysis.menu2">
+            <separator
+                  name="group2">
+            </separator>
+         </menu>
+         <action
+               class="com.thalesgroup.optet.devenv.popup.actions.USDLAction"
+               enablesFor="1"
+               id="com.thalesgroup.optet.devenv.USDLAction"
+               label="create USDL"
+               menubarPath="OptetAnalysis.menu2/group2">
+         </action>
+         <action
+               class="com.thalesgroup.optet.devenv.popup.actions.DeliveryAction"
+               enablesFor="1"
+               id="com.thalesgroup.optet.devenv.DeliveryAction"
+               label="delivery to the marketplace"
+               menubarPath="OptetAnalysis.menu2/group2">
+         </action>
+                  <visibility>
+               <systemProperty 
+                     name="optet.role"
+                     value="del">
+               </systemProperty >
+         </visibility>
+      </objectContribution>
+         </extension>
+      
+      
+  <!--    <objectContribution
+            adaptable="true"
+            id="com.thalesgroup.optet.devenv.contribution1"
+            objectClass="org.eclipse.core.resources.IProject">
+            
+                     <menu
+               label="optet certification"
+               path="additions"
+               id="OptetAnalysis.menu2">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         
+         
+			<action
+               class="com.thalesgroup.optet.devenv.popup.actions.GenerateCertificateAction"
+               enablesFor="1"
+               id="com.thalesgroup.optet.devenv.GenerateCertificateAction"
+               label="Optet certification"
+               menubarPath="OptetAnalysis.menu2/group1">
+         </action>
+         <visibility>
+               <objectState
+                                       variable="com.thalesgroup.session.kind">
+                     <equals
+                           value="admin">
+                     </equals>
+
+               </objectState>
+         </visibility>
+      </objectContribution>
+   </extension>-->
+      <extension
+            id="OptetBuilder"
+            name="Optet Project Builder"
+            point="org.eclipse.core.resources.builders">
+         <builder
+               hasNature="true">
+            <run
+                  class="com.thalesgroup.optet.devenv.builder.OptetBuilder">
+            </run>
+         </builder>
+      </extension>
+      <extension
+            id="OptetNature"
+            name="Optet Project Nature"
+            point="org.eclipse.core.resources.natures">
+         <runtime>
+            <run
+                  class="com.thalesgroup.optet.devenv.builder.OptetNature">
+            </run>
+         </runtime>
+         <builder
+               id="com.thalesgroup.optet.devenv.OptetBuilder">
+         </builder>
+      </extension>
+      <extension
+            id="xmlProblem"
+            name="XML Problem"
+            point="org.eclipse.core.resources.markers">
+         <super
+               type="org.eclipse.core.resources.problemmarker">
+         </super>
+         <persistent
+               value="true">
+         </persistent>
+      </extension>
+   
+   
+   
+<!--   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            id="com.thalesgroup.optet.devenv.contribution1"
+            objectClass="org.eclipse.core.resources.IResource">
+         <menu
+               id="com.thalesgroup.optet.devenv.menu1"
+               label="Optet"
+               path="additions">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               class="com.thalesgroup.optet.devenv.popup.actions.MetricsAction"
+               enablesFor="1"
+               id="com.thalesgroup.optet.devenv.MetricsAction"
+               label="Optet metrics"
+               menubarPath="com.thalesgroup.optet.devenv.menu1/group1">
+               <selection class="org.eclipse.core.resources.IFolder"/>
+         </action>
+
+         <action
+               class="com.thalesgroup.optet.devenv.popup.actions.AuditsAction"
+               enablesFor="1"
+               id="com.thalesgroup.optet.devenv.AuditsAction"
+               label="Optet Audits"
+               menubarPath="com.thalesgroup.optet.devenv.menu1/group1">
+         </action>
+         <action
+               class="com.thalesgroup.optet.devenv.popup.actions.GenerateCertificateAction"
+               enablesFor="1"
+               id="com.thalesgroup.optet.devenv.GenerateCertificateAction"
+               label="Optet certificate"
+               menubarPath="com.thalesgroup.optet.devenv.menu1/group1">
+         </action>
+
+      </objectContribution>
+   </extension>-->
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            name="Optet Certification"
+            id="OptetWizard">
+      </category>
+      <wizard
+            name="Optet Java Wizard"
+            icon="icons/optet.ico"
+            canFinishEarly="false"
+            finalPerspective="org.eclipse.jdt.ui.JavaPerspective"
+            hasPages="true"
+            preferredPerspectives="org.eclipse.jdt.ui.JavaPerspective" 
+            project="true"
+            category="OptetWizard"
+            class="com.thalesgroup.optet.devenv.wizard.OptetWizard"
+            id="com.thalesgroup.optet.devenv.wizard.OptetWizard">
+      </wizard>
+      <wizard
+            name="Optet Wizard"
+            icon="icons/optet.ico"
+            canFinishEarly="false"
+            hasPages="true"
+            project="true"
+            category="OptetWizard"
+            class="com.thalesgroup.optet.devenv.wizard.CommonOptetWizard"
+            id="com.thalesgroup.optet.devenv.wizard.CommonOptetWizard">
+      </wizard>
+      <wizard
+            name="Android Optet Wizard"
+            icon="icons/optet.ico"
+            canFinishEarly="false"
+            finalPerspective="org.eclipse.jdt.ui.JavaPerspective"
+            hasPages="true"
+            preferredPerspectives="org.eclipse.jdt.ui.JavaPerspective" 
+            project="true"
+            category="OptetWizard"
+            class="com.thalesgroup.optet.devenv.wizard.AndroidOptetWizard"
+            id="com.thalesgroup.optet.devenv.wizard.AndroidOptetWizard">
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.help.toc">
+      <toc
+            file="toc.xml">
+      </toc>
+      <toc
+            file="testToc.xml"
+            primary="true">
+      </toc>
+   </extension>>
+</plugin>

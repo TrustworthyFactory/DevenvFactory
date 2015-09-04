@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<optetProfiles version="1">
+    <optetProfile name="prof1" editable="true" default="true" description="prof1desc">
+        <checkstyle pathconf="D:\works\security2011\optet\WP4\workspace\OptetPlugin\xsd\checkStyleRules.xml" used="true"></checkstyle>
+        <codepro profile="Security" used="true"></codepro>
+        <pmd used="true" ruleset="java-logging-java,java-sunsecure,java-codesize,java-design,java-logging-jakarta-commons,java-strings,java-optimizations,java-imports,java-controversial,java-finalizers,java-basic,java-j2ee,java-comments,java-naming,java-clone,java-javabeans,java-unnecessary,java-junit,java-migrating,java-unusedcode,java-braces,java-empty,java-strictexception"></pmd>
+        <findbugs used="true" ruleset="D,V,B,C,I,S,P,M"></findbugs>
+    </optetProfile>
+    <optetProfile name="prof2" editable="false" default="false" description="prof2desc">
+        <checkstyle pathconf="c:" used="true"></checkstyle>
+        <codepro profile="CodePro Core" used="true"></codepro>
+        <pmd used="true" ruleset="java-sunsecure,java-codesize,java-design,java-strings,java-optimizations,java-imports,java-controversial,java-finalizers,java-basic,java-j2ee,java-comments,java-naming,java-clone,java-javabeans,java-unnecessary,java-coupling,java-junit,java-unusedcode,java-braces,java-empty,java-strictexception"></pmd>
+        <findbugs used="true" ruleset="D,V,B"></findbugs>
+    </optetProfile>
+    <optetProfile name="prof3" editable="true" default="false" description="prof3desc">
+        <checkstyle pathconf="c:" used="true"></checkstyle>
+        <codepro profile="Security" used="true"></codepro>
+        <pmd used="false" ruleset="java-sunsecure,java-codesize,java-design,java-strings,java-optimizations,java-imports,java-controversial,java-finalizers,java-basic,java-j2ee,java-comments,java-naming,java-clone,java-javabeans,java-unnecessary,java-coupling,java-junit,java-unusedcode,java-braces,java-empty,java-strictexception"></pmd>
+        <findbugs used="true" ruleset="D,V,B,M,X"></findbugs>
+    </optetProfile>
+</optetProfiles>

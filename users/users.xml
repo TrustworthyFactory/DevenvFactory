@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+<user name="cert" password="cert" group="admin"/>
+<user name="dev" password="dev" group="dev"/>
+<user name="prod" password="prod" group="del"/>
+</users>

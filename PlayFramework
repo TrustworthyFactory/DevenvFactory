@@ -1,0 +1,4 @@
+Another solution, if you want to stay with JDK7, would be to use "-XX:-UseSplitVerifier" as an argument for the VM. Go to
+
+Window → Preferences → Java → Installed JREs → Edit... → Default VM arguments
+

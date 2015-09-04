@@ -1,0 +1,1115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#"
+	xml:base="http://www.optet.eu/ns/DigitalTrustworthinessCertificate"
+	xmlns:DigitalTrustworthinessCertificate="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:foaf="http://xmlns.com/foaf/0.1/"
+	xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://dublincore.org/2010/10/11/dcterms.rdf#"
+	xmlns:dsig="http://www.w3.org/2000/09/xmldsig#">
+	<owl:Ontology
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate">
+		<rdfs:label>Digital Trustworthiness Certificate Vocabulary
+		</rdfs:label>
+		<owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0.3.0</owl:versionInfo>
+		<dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013-11-18
+		</dcterms:created>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2014-02-28
+		</dcterms:modified>
+		<dcterms:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Digital Trustworthiness
+			Certificate Vocabulary</dcterms:title>
+		<dcterms:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Francesco Di Cerbo
+		</dcterms:creator>
+		<dcterms:rights rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SAP contribution in the EU
+			FP7 OPTET research project.</dcterms:rights>
+		<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This DTWC Vocabulary is a
+			means to express Digital TrustWorthiness Certificate instances, as
+			defined in the OPTET project (http://www.optet.eu).
+			The DTWC vocabulary aims at defining a content structure for asserting
+			specific characteristics of a software, like those stated as outcome
+			of certification processes. This vocabulary is deliberately agnostic
+			with respect to any certification scheme, therefore it can
+			potentially represent the results of any certification process, by
+			extending it adequately.
+		</rdfs:comment>
+		<dcterms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This DTWC
+			Vocabulary is a means to express Digital TrustWorthiness Certificate
+			instances, as defined in the OPTET project (http://www.optet.eu).
+			The DTWC vocabulary aims at defining a content structure for asserting
+			specific characteristics of a software, like those stated as outcome
+			of certification processes. This vocabulary is deliberately agnostic
+			with respect to any certification scheme, therefore it can
+			potentially represent the results of any certification process, by
+			extending it adequately.
+
+			The DTWC is composed by four sections:
+			- A Software Description (SD) that details the internals of software
+			being certified. It comprises a list of internal components, their
+			relations and a list of assets, i.e. the notable elements inside
+			components, from which specific assessments and claims are made in
+			the certificate.
+			- A Trustworthiness Problem Definition [--TBC--].
+			- A Trustworthiness Property Specification [--TBC--].
+			- An Evidence section [--TBC--].
+		</dcterms:description>
+		<owl:versionIRI
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate/0.2.0" />
+	</owl:Ontology>
+
+
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////// 
+		// // Annotation properties // /////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<owl:AnnotationProperty rdf:about="http://xmlns.com/foaf/0.1/firstName" />
+	<owl:AnnotationProperty rdf:about="http://xmlns.com/foaf/0.1/lastName" />
+	<owl:AnnotationProperty rdf:about="http://xmlns.com/foaf/0.1/title" />
+	<owl:AnnotationProperty rdf:about="http://xmlns.com/foaf/0.1/name" />
+	<owl:AnnotationProperty rdf:about="http://xmlns.com/foaf/0.1/phone" />
+
+
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////// 
+		// // Datatypes // /////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////// 
+		// // Object Properties // /////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#affectsAsset -->
+
+	<owl:ObjectProperty
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#affectsAsset">
+		<rdfs:domain
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#TWProblemDefinition" />
+	</owl:ObjectProperty>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasAsset -->
+
+	<owl:ObjectProperty
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasAsset">
+		<rdfs:domain
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#SystemDescription" />
+		<rdfs:domain
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#TWProperty" />
+		<rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty" />
+	</owl:ObjectProperty>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasAssociatedStakeholder -->
+
+	<owl:ObjectProperty
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasAssociatedStakeholder">
+		<rdfs:domain
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Component" />
+		<rdfs:range>
+			<owl:Restriction>
+				<owl:onProperty
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasSubComponent" />
+				<owl:someValuesFrom
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Stakeholder" />
+			</owl:Restriction>
+		</rdfs:range>
+	</owl:ObjectProperty>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasBehaviour -->
+
+	<owl:ObjectProperty
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasBehaviour">
+		<rdfs:domain
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Component" />
+	</owl:ObjectProperty>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasContext -->
+
+	<owl:ObjectProperty
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasContext">
+		<rdfs:domain
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#TWProperty" />
+	</owl:ObjectProperty>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasControl -->
+
+	<owl:ObjectProperty
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasControl">
+		<rdfs:domain
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#TWPropertySpecification" />
+		<rdfs:domain
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Threat" />
+	</owl:ObjectProperty>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasEvidence -->
+
+	<owl:ObjectProperty
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasEvidence">
+		<rdfs:domain
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#DTWC" />
+	</owl:ObjectProperty>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasMetric -->
+
+	<owl:ObjectProperty
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasMetric">
+		<rdfs:domain
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Evidence" />
+	</owl:ObjectProperty>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasMetricCalculationMethod -->
+
+	<owl:ObjectProperty
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasMetricCalculationMethod">
+		<rdfs:domain
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Metric" />
+		<rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty" />
+	</owl:ObjectProperty>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasPart -->
+
+	<owl:ObjectProperty
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasPart">
+		<rdfs:domain
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Component" />
+		<rdfs:domain
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#ComponentModel" />
+		<rdfs:domain
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#DTWC" />
+		<rdfs:domain
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#SystemDescription" />
+	</owl:ObjectProperty>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasStakeholder -->
+
+	<owl:ObjectProperty
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasStakeholder">
+		<rdfs:domain
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#SystemDescription" />
+	</owl:ObjectProperty>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasSubComponent -->
+
+	<owl:ObjectProperty
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasSubComponent">
+		<rdfs:domain
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#ComponentModel" />
+		<rdfs:range>
+			<owl:Restriction>
+				<owl:onProperty
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasSubComponent" />
+				<owl:someValuesFrom
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Component" />
+			</owl:Restriction>
+		</rdfs:range>
+	</owl:ObjectProperty>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasTWAttribute -->
+
+	<owl:ObjectProperty
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasTWAttribute">
+		<rdfs:domain
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#TWProperty" />
+	</owl:ObjectProperty>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasTWProblemDefinition -->
+
+	<owl:ObjectProperty
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasTWProblemDefinition">
+		<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty" />
+		<rdfs:domain
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#DTWC" />
+	</owl:ObjectProperty>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasTWProperty -->
+
+	<owl:ObjectProperty
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasTWProperty">
+		<rdfs:domain
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#TWPropertySpecification" />
+	</owl:ObjectProperty>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasTWPropertySpecification -->
+
+	<owl:ObjectProperty
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasTWPropertySpecification">
+		<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty" />
+		<rdfs:domain
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#DTWC" />
+	</owl:ObjectProperty>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasThreat -->
+
+	<owl:ObjectProperty
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasThreat">
+		<rdfs:domain
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#TWProblemDefinition" />
+	</owl:ObjectProperty>
+
+
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////// 
+		// // Data properties // /////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#ID -->
+
+	<owl:DatatypeProperty
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#ID">
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+		<rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing" />
+	</owl:DatatypeProperty>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasHash -->
+
+	<owl:DatatypeProperty
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasHash">
+		<rdfs:domain
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#DTWC" />
+	</owl:DatatypeProperty>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasUnit -->
+
+	<owl:DatatypeProperty
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasUnit">
+		<rdfs:domain
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Metric" />
+		<rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty" />
+	</owl:DatatypeProperty>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasValue -->
+
+	<owl:DatatypeProperty
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasValue">
+		<rdfs:domain
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Metric" />
+		<rdfs:domain
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#MetricRuntimeCalculation" />
+		<rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty" />
+	</owl:DatatypeProperty>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#inTargetOfEvaluation -->
+
+	<owl:DatatypeProperty
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#inTargetOfEvaluation">
+		<rdfs:domain
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Component" />
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean" />
+	</owl:DatatypeProperty>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#type -->
+
+	<owl:DatatypeProperty
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#type">
+		<rdfs:domain
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Attribute" />
+		<rdfs:domain
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Component" />
+		<rdfs:domain
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Control" />
+		<rdfs:domain
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Metric" />
+		<rdfs:domain
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Stakeholder" />
+		<rdfs:domain
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#TWAttribute" />
+		<rdfs:domain
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Threat" />
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+	</owl:DatatypeProperty>
+
+
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////// 
+		// // Classes // /////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Asset -->
+
+	<owl:Class
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Asset">
+		<owl:equivalentClass>
+			<owl:Restriction>
+				<owl:onProperty
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#inTargetOfEvaluation" />
+				<owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#boolean" />
+			</owl:Restriction>
+		</owl:equivalentClass>
+		<rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing" />
+	</owl:Class>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Attribute -->
+
+	<owl:Class
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Attribute" />
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Behaviour -->
+
+	<owl:Class
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Behaviour" />
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#CertifiedEvidence -->
+
+	<owl:Class
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#CertifiedEvidence">
+		<rdfs:subClassOf
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Evidence" />
+	</owl:Class>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Component -->
+
+	<owl:Class
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Component">
+		<rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing" />
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasBehaviour" />
+				<owl:someValuesFrom
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Behaviour" />
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasPart" />
+				<owl:someValuesFrom
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#ComponentModel" />
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasStakeholder" />
+				<owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing" />
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#ComponentModel -->
+
+	<owl:Class
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#ComponentModel">
+		<rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing" />
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasSubComponent" />
+				<owl:someValuesFrom
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Component" />
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasPart" />
+				<owl:someValuesFrom
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Attribute" />
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:comment xml:lang="en">The ComponentModel can be used to
+			define the structure and the internal dynamics of a Component. This
+			node can be extended to comprise any piece of information deemed
+			necessary, for instance, the Abstract Syntax Tree or a formal model
+			for a Component.
+
+			The hasPart relation can specify relevant elements like for instance
+			variables or input parameters for which certain TW properties will be
+			asserted.
+
+			The hasSubComponent relation can be used to express an hierachy of
+			Components.
+		</rdfs:comment>
+	</owl:Class>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Context -->
+
+	<owl:Class
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Context" />
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Control -->
+
+	<owl:Class
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Control" />
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#DTWC -->
+
+	<owl:Class
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#DTWC">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasTWProblemDefinition" />
+				<owl:someValuesFrom
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#TWProblemDefinition" />
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasEvidence" />
+				<owl:someValuesFrom
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Evidence" />
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasTWPropertySpecification" />
+				<owl:someValuesFrom
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#TWPropertySpecification" />
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasPart" />
+				<owl:onClass
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#SystemDescription" />
+				<owl:maxQualifiedCardinality
+					rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasHash" />
+				<owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Evidence -->
+
+	<owl:Class
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Evidence">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasMetric" />
+				<owl:someValuesFrom
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Metric" />
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Metric -->
+
+	<owl:Class
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Metric">
+		<rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing" />
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasUnit" />
+				<owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#short" />
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasPart" />
+				<owl:someValuesFrom
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#MetricRuntimeCalculation" />
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasValue" />
+				<owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#short" />
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#MetricRuntimeCalculation -->
+
+	<owl:Class
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#MetricRuntimeCalculation">
+		<rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing" />
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasValue" />
+				<owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#short" />
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#RuntimeEvidence -->
+
+	<owl:Class
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#RuntimeEvidence">
+		<rdfs:subClassOf
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Evidence" />
+	</owl:Class>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Stakeholder -->
+
+	<owl:Class
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Stakeholder">
+		<rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing" />
+	</owl:Class>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#SubComponent -->
+
+	<owl:Class
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#SubComponent">
+		<rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing" />
+	</owl:Class>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#SystemDescription -->
+
+	<owl:Class
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#SystemDescription">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasStakeholder" />
+				<owl:someValuesFrom
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Stakeholder" />
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasAsset" />
+				<owl:someValuesFrom
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Asset" />
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasPart" />
+				<owl:someValuesFrom
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Component" />
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#TWAttribute -->
+
+	<owl:Class
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#TWAttribute">
+		<rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing" />
+	</owl:Class>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#TWProblemDefinition -->
+
+	<owl:Class
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#TWProblemDefinition">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasThreat" />
+				<owl:someValuesFrom
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Threat" />
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#affectsAsset" />
+				<owl:someValuesFrom
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Asset" />
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#TWProperty -->
+
+	<owl:Class
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#TWProperty">
+		<rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing" />
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasAsset" />
+				<owl:someValuesFrom
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Asset" />
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasTWAttribute" />
+				<owl:someValuesFrom
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#TWAttribute" />
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasContext" />
+				<owl:someValuesFrom
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Context" />
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#TWPropertySpecification -->
+
+	<owl:Class
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#TWPropertySpecification">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasTWProperty" />
+				<owl:someValuesFrom
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#TWProperty" />
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasControl" />
+				<owl:someValuesFrom
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Control" />
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+
+
+
+	<!-- http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Threat -->
+
+	<owl:Class
+		rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Threat">
+		<rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing" />
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#hasControl" />
+				<owl:someValuesFrom
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Control" />
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+
+
+
+	<!-- http://www.w3.org/2002/07/owl#Thing -->
+
+	<rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#type" />
+				<owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty
+					rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#ID" />
+				<owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</rdf:Description>
+
+
+
+	<!-- http://xmlns.com/foaf/0.1/Person -->
+
+	<owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person" />
+
+
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////// 
+		// // Individuals // /////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
+
+	<!-- MyAttr1 -->
+
+	<owl:NamedIndividual rdf:about="MyAttr1">
+		<rdf:type
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Attribute" />
+	</owl:NamedIndividual>
+
+
+
+	<!-- MyBehaviour1 -->
+
+	<owl:NamedIndividual rdf:about="MyBehaviour1">
+		<rdf:type
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Behaviour" />
+	</owl:NamedIndividual>
+
+
+
+	<!-- MyBehaviour2 -->
+
+	<owl:NamedIndividual rdf:about="MyBehaviour2">
+		<rdf:type
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Behaviour" />
+	</owl:NamedIndividual>
+
+
+
+	<!-- MyCertEvidence -->
+
+	<owl:NamedIndividual rdf:about="MyCertEvidence">
+		<rdf:type
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#CertifiedEvidence" />
+		<ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MyCertEvidence</ID>
+		<hasMetric rdf:resource="MyMetric1" />
+		<hasMetric rdf:resource="MyMetric2" />
+	</owl:NamedIndividual>
+
+
+
+	<!-- MyComp1 -->
+
+	<owl:NamedIndividual rdf:about="MyComp1">
+		<rdf:type
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Component" />
+		<ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MyComp1</ID>
+		<type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MyType5</type>
+		<inTargetOfEvaluation rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true
+		</inTargetOfEvaluation>
+		<hasBehaviour rdf:resource="MyBehaviour1" />
+		<hasBehaviour rdf:resource="MyBehaviour2" />
+		<hasPart rdf:resource="MyComp1ComponentName" />
+		<hasAssociatedStakeholder rdf:resource="MyStake1" />
+	</owl:NamedIndividual>
+
+
+
+	<!-- MyComp1ComponentName -->
+
+	<owl:NamedIndividual rdf:about="MyComp1ComponentName">
+		<rdf:type
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#ComponentModel" />
+		<hasSubComponent rdf:resource="MyComp3" />
+	</owl:NamedIndividual>
+
+
+
+	<!-- MyComp2 -->
+
+	<owl:NamedIndividual rdf:about="MyComp2">
+		<rdf:type
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Component" />
+		<ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MyComp2</ID>
+	</owl:NamedIndividual>
+
+
+
+	<!-- MyComp3 -->
+
+	<owl:NamedIndividual rdf:about="MyComp3">
+		<rdf:type
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Component" />
+		<hasPart rdf:resource="MyComp3ComponentName" />
+	</owl:NamedIndividual>
+
+
+
+	<!-- MyComp3ComponentName -->
+
+	<owl:NamedIndividual rdf:about="MyComp3ComponentName">
+		<rdf:type
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#ComponentModel" />
+		<hasSubComponent rdf:resource="comp4" />
+	</owl:NamedIndividual>
+
+
+
+	<!-- MyControl1 -->
+
+	<owl:NamedIndividual rdf:about="MyControl1">
+		<rdf:type
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Control" />
+		<ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MyControl1</ID>
+	</owl:NamedIndividual>
+
+
+
+	<!-- MyControl2 -->
+
+	<owl:NamedIndividual rdf:about="MyControl2">
+		<rdf:type
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Control" />
+		<ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MyControl2</ID>
+	</owl:NamedIndividual>
+
+
+
+	<!-- MyDTWC -->
+
+	<owl:NamedIndividual rdf:about="MyDTWC">
+		<rdf:type
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#DTWC" />
+		<hasEvidence rdf:resource="MyCertEvidence" />
+		<hasTWProblemDefinition rdf:resource="MyProb1" />
+		<hasTWProblemDefinition rdf:resource="MyProb2" />
+		<hasPart rdf:resource="SystemDescription" />
+	</owl:NamedIndividual>
+
+
+
+	<!-- MyMetric1 -->
+
+	<owl:NamedIndividual rdf:about="MyMetric1">
+		<rdf:type
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Metric" />
+		<ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MyMetric1</ID>
+		<hasUnit rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MyUnit1</hasUnit>
+		<hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">myValue1</hasValue>
+		<hasMetricCalculationMethod rdf:resource="mrc" />
+	</owl:NamedIndividual>
+
+
+
+	<!-- MyMetric2 -->
+
+	<owl:NamedIndividual rdf:about="MyMetric2">
+		<rdf:type
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Metric" />
+		<ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MyMetric2</ID>
+		<hasUnit rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MyUnit2</hasUnit>
+		<hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">myValue2</hasValue>
+	</owl:NamedIndividual>
+
+
+
+	<!-- MyProb1 -->
+
+	<owl:NamedIndividual rdf:about="MyProb1">
+		<rdf:type
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#TWProblemDefinition" />
+		<ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MyProb1</ID>
+		<affectsAsset rdf:resource="MyComp1" />
+		<hasThreat rdf:resource="MyThreat1" />
+	</owl:NamedIndividual>
+
+
+
+	<!-- MyProb2 -->
+
+	<owl:NamedIndividual rdf:about="MyProb2">
+		<rdf:type
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#TWProblemDefinition" />
+		<ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MyProb2</ID>
+		<affectsAsset rdf:resource="MyComp1" />
+		<hasThreat rdf:resource="MyThreat2" />
+	</owl:NamedIndividual>
+
+
+
+	<!-- MyStake1 -->
+
+	<owl:NamedIndividual rdf:about="MyStake1">
+		<rdf:type
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Stakeholder" />
+		<ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MyStake1</ID>
+		<type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MyStakeType</type>
+	</owl:NamedIndividual>
+
+
+
+	<!-- MyStake2 -->
+
+	<owl:NamedIndividual rdf:about="MyStake2">
+		<rdf:type
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Stakeholder" />
+		<ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MyStake2</ID>
+	</owl:NamedIndividual>
+
+
+
+	<!-- MyThreat1 -->
+
+	<owl:NamedIndividual rdf:about="MyThreat1">
+		<rdf:type
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Threat" />
+		<ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MyThreat1</ID>
+		<hasControl rdf:resource="MyControl1" />
+	</owl:NamedIndividual>
+
+
+
+	<!-- MyThreat2 -->
+
+	<owl:NamedIndividual rdf:about="MyThreat2">
+		<rdf:type
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Threat" />
+		<ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MyThreat2</ID>
+		<hasControl rdf:resource="MyControl2" />
+	</owl:NamedIndividual>
+
+
+
+	<!-- SystemDescription -->
+
+	<owl:NamedIndividual rdf:about="SystemDescription">
+		<rdf:type
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#SystemDescription" />
+		<hasAsset rdf:resource="MyComp1" />
+		<hasPart rdf:resource="MyComp1" />
+		<hasPart rdf:resource="MyComp2" />
+		<hasAsset rdf:resource="MyComp2" />
+		<hasStakeholder rdf:resource="MyStake1" />
+		<hasStakeholder rdf:resource="MyStake2" />
+	</owl:NamedIndividual>
+
+
+
+	<!-- comp4 -->
+
+	<owl:NamedIndividual rdf:about="comp4">
+		<rdf:type
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Component" />
+	</owl:NamedIndividual>
+
+
+
+	<!-- mrc -->
+
+	<owl:NamedIndividual rdf:about="mrc">
+		<rdf:type
+			rdf:resource="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#MetricRuntimeCalculation" />
+		<ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mrcID1</ID>
+		<hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mrcValue</hasValue>
+	</owl:NamedIndividual>
+
+
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////// 
+		// // General axioms // /////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<rdf:Description>
+		<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses" />
+		<owl:members rdf:parseType="Collection">
+			<rdf:Description
+				rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#DTWC" />
+			<rdf:Description
+				rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#Evidence" />
+			<rdf:Description
+				rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#SystemDescription" />
+			<rdf:Description
+				rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#TWProblemDefinition" />
+			<rdf:Description
+				rdf:about="http://www.optet.eu/ns/DigitalTrustworthinessCertificate#TWPropertySpecification" />
+		</owl:members>
+	</rdf:Description>
+
+	<dsig:Signature xmlns:dsig="http://www.w3.org/2000/09/xmldsig#">
+		<dsig:SignedInfo>
+			<dsig:CanonicalizationMethod
+				Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments" />
+			<dsig:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+			<dsig:Reference URI="">
+				<dsig:Transforms>
+					<dsig:Transform
+						Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+				</dsig:Transforms>
+				<dsig:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+				<dsig:DigestValue>cjryl/6gP07AJzSGpkUIXIo4I4n8LtzBiXQE1tBIwyY=
+				</dsig:DigestValue>
+			</dsig:Reference>
+		</dsig:SignedInfo>
+		<dsig:SignatureValue>HzmlU7Q8hBa4dMplLJLiS4dOOUucn2rfv2ARkr2LbLLdkrX93D2E3eN8shzqq8ohc26I8BlYgIWx
+			f4CWNCkSgY9iq9grYsYMeVdUq2/ssLmGc/YqkOwo5jS7XYRNHe+mg7qJyyQvYETg/SiVpvt9DTyq
+			YFruQQRcbmybp3MIt/Y=
+		</dsig:SignatureValue>
+		<dsig:KeyInfo>
+			<dsig:KeyValue>
+				<dsig:RSAKeyValue>
+					<dsig:Modulus>n3X1rWfGb+6Fi6SN1Eb5kPZF+PfO6S/fTqt7oDAvc3/voGtl5rqWO/j4tczbKjdfF15YAmAo/S2/
+						M0RkJB/7JjN7EtN7rD17Siip6NIg0xkD/zYO4nmg/iG4LyLIq6zVAjfmQ57+pkNLy8eTzwUO4umN
+						dBqzSeEiew8530bj1DE=
+					</dsig:Modulus>
+					<dsig:Exponent>AQAB</dsig:Exponent>
+				</dsig:RSAKeyValue>
+			</dsig:KeyValue>
+		</dsig:KeyInfo>
+	</dsig:Signature>
+</rdf:RDF>

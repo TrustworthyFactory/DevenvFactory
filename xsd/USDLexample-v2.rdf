@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY ctag "http://commontag.org/ns#" >
+    <!ENTITY org "http://www.w3.org/ns/org#" >
+    <!ENTITY dcterms "http://purl.org/dc/terms/" >
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY time "http://www.w3.org/2006/time#" >
+    <!ENTITY doap "http://usefulinc.com/ns/doap#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY vcard "http://www.w3.org/2006/vcard/ns#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY optet-mkp "http://optet.eu/ns/TWMarketplace#" >
+    <!ENTITY gr "http://purl.org/goodrelations/v1#" >
+    <!ENTITY blueprint "http://bizweb.sap.com/TR/blueprint#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY sec "http://www.linked-usdl.org/ns/usdl-sec#" >
+    <!ENTITY sla "http://www.linked-usdl.org/ns/usdl-sla#" >
+    <!ENTITY usdl "http://www.linked-usdl.org/ns/usdl-core#" >
+    <!ENTITY legal "http://www.linked-usdl.org/ns/usdl-legal#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY price "http://www.linked-usdl.org/ns/usdl-pricing#" >
+    <!ENTITY msm "http://cms-wg.sti2.org/ns/minimal-service-model#" >
+    <!ENTITY sec-tax "http://www.linked-usdl.org/ns/usdl-sec-taxonomy#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.acme.ie/offerings/offering-id-231#"
+     xml:base="http://www.acme.ie/offerings/offering-id-231"
+     xmlns:legal="http://www.linked-usdl.org/ns/usdl-legal#"
+     xmlns:org="http://www.w3.org/ns/org#"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:time="http://www.w3.org/2006/time#"
+     xmlns:sec-tax="http://www.linked-usdl.org/ns/usdl-sec-taxonomy#"
+     xmlns:usdl="http://www.linked-usdl.org/ns/usdl-core#"
+     xmlns:ctag="http://commontag.org/ns#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:sla="http://www.linked-usdl.org/ns/usdl-sla#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:msm="http://cms-wg.sti2.org/ns/minimal-service-model#"
+     xmlns:optet-mkp="http://optet.eu/ns/TWMarketplace#"
+     xmlns:vcard="http://www.w3.org/2006/vcard/ns#"
+     xmlns:price="http://www.linked-usdl.org/ns/usdl-pricing#"
+     xmlns:sec="http://www.linked-usdl.org/ns/usdl-sec#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:blueprint="http://bizweb.sap.com/TR/blueprint#"
+     xmlns:doap="http://usefulinc.com/ns/doap#"
+     xmlns:gr="http://purl.org/goodrelations/v1#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+
+	 
+    <owl:Ontology rdf:about="http://www.acme.ie/offerings/offering-id-231">
+        <owl:versionInfo>1.0.0</owl:versionInfo>
+        <owl:imports rdf:resource="http://optet.eu/ns/TWMarketplace"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.acme.ie/offerings/offering-id-231#ES6IqLmZvHhXNwBbs -->
+
+    <owl:NamedIndividual rdf:about="http://www.acme.ie/offerings/offering-id-231#ES6IqLmZvHhXNwBbs">
+        <rdf:type rdf:resource="&gr;BusinessEntity"/>
+        <gr:legalName>ACME Ltd</gr:legalName>
+        <usdl:legalForm></usdl:legalForm>
+        <dcterms:description xml:lang="en">Acme is described here</dcterms:description>
+        <foaf:homepage rdf:resource="http://www.acme.ie"/>
+        <vcard:adr>
+            <rdf:Description>
+                <rdf:type rdf:resource="&vcard;Work"/>
+            </rdf:Description>
+        </vcard:adr>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.acme.ie/offerings/offering-id-231#Kz9z3IUgEQArMfRz8 -->
+
+    <owl:NamedIndividual rdf:about="http://www.acme.ie/offerings/offering-id-231#Kz9z3IUgEQArMfRz8">
+        <rdf:type rdf:resource="&price;PriceComponent"/>
+        <gr:hasCurrencyValue rdf:datatype="&xsd;float">100000.0</gr:hasCurrencyValue>
+        <dcterms:description xml:lang="en"></dcterms:description>
+        <gr:hasCurrency>EUR</gr:hasCurrency>
+        <gr:hasUnitOfMeasurement></gr:hasUnitOfMeasurement>
+        <dcterms:title xml:lang="en">Standard Price</dcterms:title>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.acme.ie/offerings/offering-id-231#Lo2ZSYmeXu15euf4Y -->
+
+    <owl:NamedIndividual rdf:about="http://www.acme.ie/offerings/offering-id-231#Lo2ZSYmeXu15euf4Y">
+        <rdf:type rdf:resource="&price;PricePlan"/>
+        <dcterms:description xml:lang="en"></dcterms:description>
+        <dcterms:title xml:lang="en">Standard Price Plan</dcterms:title>
+        <price:hasPriceComponent rdf:resource="http://www.acme.ie/offerings/offering-id-231#Kz9z3IUgEQArMfRz8"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.acme.ie/offerings/offering-id-231#SQstQpBtZhbcYJEcW -->
+
+    <owl:NamedIndividual rdf:about="http://www.acme.ie/offerings/offering-id-231#SQstQpBtZhbcYJEcW">
+        <rdf:type rdf:resource="&usdl;ServiceOffering"/>
+        <usdl:validFrom rdf:datatype="&xsd;datetime">2011-12-01</usdl:validFrom>
+        <usdl:validThrough rdf:datatype="&xsd;datetime">2011-12-31</usdl:validThrough>
+        <dcterms:description xml:lang="en"></dcterms:description>
+        <dcterms:title xml:lang="en">Service Offering Description</dcterms:title>
+        <usdl:hasPricePlan rdf:resource="http://www.acme.ie/offerings/offering-id-231#Lo2ZSYmeXu15euf4Y"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.acme.ie/offerings/offering-id-231#aServiceDescription -->
+
+    <owl:NamedIndividual rdf:about="http://www.acme.ie/offerings/offering-id-231#aServiceDescription">
+        <rdf:type rdf:resource="&usdl;ServiceDescription"/>
+        <dcterms:modified rdf:datatype="&xsd;datetime"></dcterms:modified>
+        <dcterms:created rdf:datatype="&xsd;datetime"></dcterms:created>
+        <dcterms:title xml:lang="en"></dcterms:title>
+        <dcterms:description xml:lang="en"></dcterms:description>
+        <dcterms:creator>
+            <rdf:Description>
+                <rdf:type rdf:resource="&foaf;Person"/>
+            </rdf:Description>
+        </dcterms:creator>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.acme.ie/offerings/offering-id-231#aServiceTechnicalDescription -->
+
+    <owl:NamedIndividual rdf:about="http://www.acme.ie/offerings/offering-id-231#aServiceTechnicalDescription">
+        <rdf:type rdf:resource="&optet-mkp;TechnicalDescription"/>
+        <optet-mkp:License rdf:datatype="&xsd;string">BSD</optet-mkp:License>
+        <optet-mkp:ExecutionPlatform rdf:datatype="&xsd;string">JEE</optet-mkp:ExecutionPlatform>
+        <optet-mkp:ProgrammingLanguage rdf:datatype="&xsd;string">Java</optet-mkp:ProgrammingLanguage>
+        <optet-mkp:SoftwareDependency rdf:datatype="&xsd;string">The list of software dependencies in textual form</optet-mkp:SoftwareDependency>
+        <optet-mkp:HardwareRequirement rdf:datatype="&xsd;string">a list of technical requirements in textual form</optet-mkp:HardwareRequirement>
+        <optet-mkp:versionNumber rdf:datatype="&xsd;string">v1.0.0</optet-mkp:versionNumber>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.acme.ie/offerings/offering-id-231#bYJNRUE4AQvTRuYgu -->
+
+    <owl:NamedIndividual rdf:about="http://www.acme.ie/offerings/offering-id-231#bYJNRUE4AQvTRuYgu">
+        <rdf:type rdf:resource="&usdl;Service"/>
+        <dcterms:created rdf:datatype="&xsd;datetime"></dcterms:created>
+        <dcterms:modified rdf:datatype="&xsd;datetime"></dcterms:modified>
+        <dcterms:description xml:lang="en"></dcterms:description>
+        <dcterms:title xml:lang="en">HR Management</dcterms:title>
+        <dcterms:abstract xml:lang="en">Nice abstract description</dcterms:abstract>
+        <foaf:page rdf:resource="http://www.acme.ie"/>
+        <optet-mkp:hasOPTETCertificate rdf:resource="http://certificationauthority.optet.eu/certificates/231423452"/>
+        <usdl:utilizedResource rdf:resource="http://www.acme.ie/offerings/offering-id-231#a2ko4HmV5B1l67LUy"/>
+        <optet-mkp:hasTechnicalDescription rdf:resource="http://www.acme.ie/offerings/offering-id-231#aServiceTechnicalDescription"/>
+        <usdl:hasClassification>
+            <rdf:Description>
+                <rdf:type rdf:resource="&skos;Concept"/>
+                <rdfs:label>Business services</rdfs:label>
+            </rdf:Description>
+        </usdl:hasClassification>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

@@ -1,0 +1,72 @@
+Notes on the creation of USDL descriptions
+
+- How to create a conceptual link between a business service and its producer/provider:
+-- Association usdl:Service -> usdl:BusinessEntity through usdl:hasInvolvedEntity. usdl-br contains a list of valid business roles. 
+--- Example
+usdl:hasInvolvedEntity [
+	a usdl:InvolvedEntity ;
+
+	usdl:hasBusinessEntity <http://www.acme.ie/offerings/offering-id-231#ES6IqLmZvHhXNwBbs> ;
+	usdl:hasBusinessRole usdl-br:provider ;
+
+	] .
+
+- How to structure USDL Service Descriptions (MANDATORY): each service must have two descriptions, abstract and long description. They must be in plain text.
+-- short descriptions: dcterms:abstract in usdl:Service element
+-- long descriptions: dcterms:description in usdl:Service element
+																											
+- How to express Service Localisation (MANDATORY):
+-- usdl:Service needs to have the information of the localization it supports. This can be done through dcterms:language .
+
+- How to describe a usdl:Service  in terms of a list of fixed Lines of Business (MANDATORY)
+A small taxonomy has been created as list of SKOS concepts. It is defined in the marketplace-vocabulary file. A usdl:Service can be described by usdl:hasClassification, like in the following example:
+-- usdl:hasClassification optet-mkp:HumanResources .
+
+- How to keep track of USDL description versions
+-- usdl:ServiceDescription is necessary to keep track of date of creation, modification, author(s) and service description version (dcterms:hasVersion).
+
+- How to express a price for an offering
+-- USDL provides a rather detailed model for expressing a pricing policy for a service. The marketplace uses a PriceComponent to describe a price
+
+<owl:NamedIndividual rdf:about="http://www.acme.ie/offerings/offering-id-231#Kz9z3IUgEQArMfRz8">
+        <rdf:type rdf:resource="&price;PriceComponent"/>
+        <gr:hasCurrencyValue rdf:datatype="&xsd;float">100000.0</gr:hasCurrencyValue>
+        <dcterms:description xml:lang="en"></dcterms:description>
+        <gr:hasCurrency>EUR</gr:hasCurrency>
+        <gr:hasUnitOfMeasurement></gr:hasUnitOfMeasurement>
+        <dcterms:title xml:lang="en">Standard Price</dcterms:title>
+    </owl:NamedIndividual>
+
+The PriceComponent is then used by a PricePlan that can specify a few details of a pricing policy:
+	
+<http://www.acme.ie/offerings/offering-id-231#Lo2ZSYmeXu15euf4Y> rdf:type price:PricePlan ,
+			 owl:NamedIndividual ;
+	
+	dcterms:description ""@en ;
+	
+	dcterms:title "Standard Price Plan"@en ;
+	
+	price:hasPriceComponent <http://www.acme.ie/offerings/offering-id-231#Kz9z3IUgEQArMfRz8> .
+
+Then, one (or more) PricePlan can be used to describe a pricing policy, in the form of a Service Offering linked to a usdl:Service:
+
+<http://www.acme.ie/offerings/offering-id-231#SQstQpBtZhbcYJEcW> rdf:type usdl:ServiceOffering ,
+			 owl:NamedIndividual ;
+	
+	usdl:validFrom "2011-12-01"^^xsd:datetime ;
+	
+	usdl:validThrough "2011-12-31"^^xsd:datetime ;
+	
+	dcterms:description ""@en ;
+	
+	dcterms:title "Service Offering Description"@en ;
+	
+	usdl:includes <http://www.acme.ie/offerings/offering-id-231#bYJNRUE4AQvTRuYgu> ;
+	
+	usdl:hasPricePlan <http://www.acme.ie/offerings/offering-id-231#Lo2ZSYmeXu15euf4Y> .
+
+
+	
+- How to specify an external web page to complement the usdl:Service description:
+-- one can use foaf:page .
+
