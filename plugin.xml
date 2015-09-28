@@ -313,7 +313,7 @@
                label="Static analysis"
                menubarPath="OptetAnalysis.menu1/group1">
          </action>
-         <action
+        <!-- <action
                class="com.thalesgroup.optet.devenv.popup.actions.JMLAction"
                enablesFor="1"
                id="com.thalesgroup.optet.devenv.JMLAction"
@@ -326,7 +326,7 @@
                id="com.thalesgroup.optet.devenv.ConfigJMLAction"
                label="Configure JML analysis"
                menubarPath="OptetAnalysis.menu1/group1">
-         </action>
+         </action>-->
          <action
                label="Runtime analysis"
                class="com.thalesgroup.optet.devenv.popup.actions.instrumentTest"
@@ -593,7 +593,7 @@
             class="com.thalesgroup.optet.devenv.wizard.CommonOptetWizard"
             id="com.thalesgroup.optet.devenv.wizard.CommonOptetWizard">
       </wizard>
-      <wizard
+      <!--<wizard
             name="Android Optet Wizard"
             icon="icons/optet.ico"
             canFinishEarly="false"
@@ -604,7 +604,7 @@
             category="OptetWizard"
             class="com.thalesgroup.optet.devenv.wizard.AndroidOptetWizard"
             id="com.thalesgroup.optet.devenv.wizard.AndroidOptetWizard">
-      </wizard>
+      </wizard>-->
    </extension>
    <extension
          point="org.eclipse.help.toc">
